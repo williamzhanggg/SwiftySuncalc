@@ -536,8 +536,8 @@ public class SwiftySuncalc
             Jset = getSetJ(h: (time[0] as! Double) * rad, lw: lw, phi: phi, dec: dec, n: n, M: M, L: L)
             Jrise = Jnoon - (Jset - Jnoon)
             
-            result[time[1] as! String] = fromJulian(j: Jrise)
-            result[time[2] as! String] = fromJulian(j: Jset)
+            result[time[1] as! String] = Jrise.isNaN ? nil : fromJulian(j: Jrise)
+            result[time[2] as! String] = Jset.isNaN ? nil : fromJulian(j: Jset)
         }
         return result
     }
